@@ -130,4 +130,48 @@
 
       <div class="pergunta">
         <p>🔟 Se a gente saísse, o que mais combina com você?</p>
-        <label><input type
+        <label><input type="radio" name="p10" value="Conversar"> Tomar algo e conversar</label>
+        <label><input type="radio" name="p10" value="Andar"> Andar por aí</label>
+        <label><input type="radio" name="p10" value="Comer"> Dividir uma comida boa</label>
+        <label><input type="radio" name="p10" value="Topa tudo"> Qualquer coisa divertida</label>
+      </div>
+
+      <button type="submit">Enviar 💌</button>
+    </form>
+
+    <div class="resultado" id="resultado">
+      <h3>Suas respostas:</h3>
+      <ul id="respostasList"></ul>
+      <p style="margin-top: 15px;">
+        😏 Agora que eu te conheço um pouco melhor...<br>
+        💡 Que tal transformar uma dessas ideias em um encontro real? 🍕☕🌻<br>
+        Me chama e a gente combina 💬✨
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('quizForm');
+    const resultado = document.getElementById('resultado');
+    const respostasList = document.getElementById('respostasList');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      respostasList.innerHTML = '';
+
+      for (let i = 1; i <= 10; i++) {
+        const resposta = form.querySelector(`input[name="p${i}"]:checked`);
+        if (resposta) {
+          const li = document.createElement('li');
+          li.textContent = `Pergunta ${i}: ${resposta.value}`;
+          respostasList.appendChild(li);
+        }
+      }
+
+      resultado.style.display = 'block';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
