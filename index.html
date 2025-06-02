@@ -11,10 +11,6 @@
       color: #fff;
       text-align: center;
       overflow-x: hidden;
-      background-image: url('https://gmimages.cdnppb.net/cdn-cgi/image/f=auto,q=50/betfair-br/Z9ljbDiBA97Gil8L_DESIGNS-115857_Fortune_Tiger_logo.png?w=450&h=450');
-      background-repeat: no-repeat;
-      background-position: center 350px;
-      background-size: 350px;
     }
     h1 {
       margin-top: 30px;
@@ -31,8 +27,10 @@
     #slot {
       display: flex;
       justify-content: center;
-      margin: 200px auto 40px auto;
+      margin: 100px auto 40px auto;
       max-width: 700px;
+      position: relative;
+      z-index: 2;
     }
     .slot-item {
       width: 140px;
@@ -83,6 +81,12 @@
       color: #ffd700;
       font-size: 20px;
     }
+    .tigre-fundo {
+      margin-top: 100px;
+    }
+    .tigre-fundo img {
+      max-width: 300px;
+    }
   </style>
 </head>
 <body>
@@ -91,13 +95,17 @@
   <p>Clique no botão para girar a roleta e descobrir seus convites especiais!</p>
 
   <div id="slot">
-    <div class="slot-item" id="slot1"><img src="https://img.freepik.com/vetores-gratis/coracao_78370-492.jpg" alt=""></div>
-    <div class="slot-item" id="slot2"><img src="https://img.freepik.com/vetores-premium/vale-beijo-vale-um-beijo-em-portugues-brasileiro-letras-de-mao-modernas-vetor_282901-137.jpg" alt=""></div>
-    <div class="slot-item" id="slot3"><img src="https://images.seeklogo.com/logo-png/38/1/stitch-happy-logo-png_seeklogo-381509.png" alt=""></div>
+    <div class="slot-item" id="slot1"></div>
+    <div class="slot-item" id="slot2"></div>
+    <div class="slot-item" id="slot3"></div>
   </div>
 
   <button onclick="girarSlot()">Girar 🎲</button>
   <div class="resultado" id="resultado"></div>
+
+  <div class="tigre-fundo">
+    <img src="https://gmimages.cdnppb.net/cdn-cgi/image/f=auto,q=50/betfair-br/Z9ljbDiBA97Gil8L_DESIGNS-115857_Fortune_Tiger_logo.png?w=450&h=450" alt="Tigrinho">
+  </div>
 
   <script>
     const simbolos = [
@@ -118,10 +126,20 @@
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNkZJWn11ymIRUSuUkzecUVU-JIudYLzHQwHLjUS8N1-3bFsm2ljpKhZmppU0bvjhigKsgGM66-wni5EQLwlMIVyPc9R5uIaVRsWPGfdCHGpm_flsbUWCUl_JV8j-m4JEUZxFVFAQVIOXITFGtWcXLjqmgxB9uYbq0hz9g47ka1IavNLZTlebXmEH9Xts/s630/cop%C3%A3o%20png%20-%20cop%C3%A3o%20fundo%20transparente%20-%20copao%20png%20sem%20fundo%20-%20copao%20-%20copao%20png%20whisky%20-%20copao%20de%20whisky%20png%20-%20copao%20de%20whisky%20fundo%20transparente%20-%20cop%C3%A3o%20gelo%20de%20coco%20e%20whisky%20-%20cop%C3%A3o%202025%20%20%20(9).png": "🥃 Uma noite com copão de whisky e risadas garantidas!"
     };
 
+    let rodada = 0;
+
     function girarSlot() {
-      const s1 = simbolos[Math.floor(Math.random() * simbolos.length)];
-      const s2 = simbolos[Math.floor(Math.random() * simbolos.length)];
-      const s3 = simbolos[Math.floor(Math.random() * simbolos.length)];
+      rodada++;
+      let s1, s2, s3;
+
+      if (rodada === 5 || rodada === 9) {
+        const escolhido = simbolos[Math.floor(Math.random() * simbolos.length)];
+        s1 = s2 = s3 = escolhido;
+      } else {
+        s1 = simbolos[Math.floor(Math.random() * simbolos.length)];
+        s2 = simbolos[Math.floor(Math.random() * simbolos.length)];
+        s3 = simbolos[Math.floor(Math.random() * simbolos.length)];
+      }
 
       document.getElementById("slot1").innerHTML = `<img src="${s1}" alt="">`;
       document.getElementById("slot2").innerHTML = `<img src="${s2}" alt="">`;
@@ -133,6 +151,8 @@
       } else {
         document.getElementById("resultado").innerHTML = "";
       }
+
+      if (rodada === 10) rodada = 0;
     }
   </script>
 
