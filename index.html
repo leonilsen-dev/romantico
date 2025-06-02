@@ -11,6 +11,10 @@
       color: #fff;
       text-align: center;
       overflow-x: hidden;
+      background-image: url('https://gmimages.cdnppb.net/cdn-cgi/image/f=auto,q=50/betfair-br/Z9ljbDiBA97Gil8L_DESIGNS-115857_Fortune_Tiger_logo.png?w=450&h=450');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 400px;
     }
     h1 {
       margin-top: 30px;
@@ -97,13 +101,12 @@
 
   <script>
     const simbolos = [
-      "https://i.imgur.com/0zYTfbJ.png", // coração
-      "https://images.seeklogo.com/logo-png/38/1/stitch-happy-logo-png_seeklogo-381509.png", // Stitch atualizado
-      "https://i.imgur.com/5JfXkTw.png", // vinho
-      "https://i.imgur.com/GX0mVKy.png", // drink
-      "https://i.imgur.com/qg0YEXY.png", // cerveja
-      "https://i.imgur.com/kRe9Ygz.png", // whisky
-      "https://i.imgur.com/lOqMRrP.png"  // beijo
+      "https://img.freepik.com/vetores-gratis/coracao_78370-492.jpg?semt=ais_items_boosted&w=740",
+      "https://images.seeklogo.com/logo-png/38/1/stitch-happy-logo-png_seeklogo-381509.png",
+      "https://png.pngtree.com/png-clipart/20240907/original/pngtree-crystal-glass-filled-with-red-wine-png-image_15958518.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNkZJWn11ymIRUSuUkzecUVU-JIudYLzHQwHLjUS8N1-3bFsm2ljpKhZmppU0bvjhigKsgGM66-wni5EQLwlMIVyPc9R5uIaVRsWPGfdCHGpm_flsbUWCUl_JV8j-m4JEUZxFVFAQVIOXITFGtWcXLjqmgxB9uYbq0hz9g47ka1IavNLZTlebXmEH9Xts/s630/cop%C3%A3o%20png%20-%20cop%C3%A3o%20fundo%20transparente%20-%20copao%20png%20sem%20fundo%20-%20copao%20-%20copao%20png%20whisky%20-%20copao%20de%20whisky%20png%20-%20copao%20de%20whisky%20fundo%20transparente%20-%20cop%C3%A3o%20gelo%20de%20coco%20e%20whisky%20-%20cop%C3%A3o%202025%20%20%20(9).png",
+      "https://imagensempng.com.br/wp-content/uploads/2021/07/10-1.png",
+      "https://img.freepik.com/vetores-premium/vale-beijo-vale-um-beijo-em-portugues-brasileiro-letras-de-mao-modernas-vetor_282901-137.jpg"
     ];
 
     let rodadas = 0;
@@ -111,7 +114,7 @@
 
     function girarSlot() {
       if (rodadas >= 10) {
-        document.getElementById("resultado").innerHTML = "🎉 Você já girou 10 vezes!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>');
+        document.getElementById("resultado").innerHTML = "🎉 Você já girou 10 vezes!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>') + "<br><br>💌 E aí, topa um desses rolês comigo?";
         return;
       }
 
@@ -125,16 +128,15 @@
 
       rodadas++;
 
-      if (rodadas === 3 || rodadas === 7) {
-        premios.push("🍻 Um convite para sair e tomar um drink no barzinho comigo!");
-      }
-      if (rodadas === 5 || rodadas === 9) {
-        premios.push("🎬 Assistir ao novo filme do Stitch juntinhos!");
-      }
-
-      if (rodadas === 10) {
-        document.getElementById("resultado").innerHTML = "🎉 Fim do jogo!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>') +
-          "<br><br>💌 Que tal viver uma dessas apostas comigo?";
+      if (s1 === s2 && s2 === s3) {
+        const sorteio = [
+          "💋 Você ganhou um vale beijo!",
+          "🍷 Uma noite especial tomando vinho comigo!",
+          "🎬 Vamos assistir o novo filme do Stitch juntinhos?",
+          "🍻 Que tal um barzinho pra comemorar essa sorte?"
+        ];
+        const premio = sorteio[Math.floor(Math.random() * sorteio.length)];
+        premios.push(premio);
       }
     }
   </script>
