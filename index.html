@@ -2,71 +2,100 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Slot do Amor 💘</title>
+  <title>Slot do Amor Misterioso 💘</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #ffccd5, #fff0f5);
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://i.imgur.com/1NxGyR5.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       text-align: center;
-      padding: 40px;
     }
     h1 {
-      color: #d63384;
+      margin-top: 30px;
+      font-size: 36px;
+      color: #ffd700;
+      text-shadow: 2px 2px #8b0000;
     }
     #slot {
       display: flex;
       justify-content: center;
-      margin: 30px 0;
+      margin: 50px auto;
+      max-width: 500px;
     }
     .slot-item {
-      width: 100px;
-      height: 100px;
-      border: 2px solid #d63384;
+      width: 120px;
+      height: 120px;
       margin: 0 10px;
-      font-size: 50px;
-      line-height: 100px;
-      border-radius: 15px;
-      background: white;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #ffd700;
+      box-shadow: 0 0 15px #ffd700;
+    }
+    .slot-item img {
+      max-width: 80px;
+      max-height: 80px;
     }
     button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background: #d63384;
+      background: #ff3366;
       color: white;
       border: none;
-      border-radius: 10px;
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 12px;
       cursor: pointer;
+      box-shadow: 0 4px #c91c4a;
+    }
+    button:active {
+      box-shadow: none;
+      transform: translateY(2px);
     }
     .resultado {
       margin-top: 30px;
-      font-size: 20px;
-      color: #333;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
 
   <h1>🎰 Slot do Amor Misterioso 💘</h1>
-  <p>Clique no botão abaixo para girar a roleta 5 vezes e descobrir o seu destino romântico!</p>
+  <p>Clique no botão para girar a roleta 10 vezes e descobrir seus convites especiais!</p>
 
   <div id="slot">
-    <div class="slot-item" id="slot1">❤️</div>
-    <div class="slot-item" id="slot2">🍷</div>
-    <div class="slot-item" id="slot3">💋</div>
+    <div class="slot-item" id="slot1"><img src="https://i.imgur.com/3YQZ8CU.png" alt=""></div>
+    <div class="slot-item" id="slot2"><img src="https://i.imgur.com/IyzfsKU.png" alt=""></div>
+    <div class="slot-item" id="slot3"><img src="https://i.imgur.com/0zYTfbJ.png" alt=""></div>
   </div>
 
   <button onclick="girarSlot()">Girar 🎲</button>
-
   <div class="resultado" id="resultado"></div>
 
   <script>
-    const simbolos = ["💋", "🍷", "❤️", "🎬", "🍕", "🍻", "🌹"];
+    const simbolos = [
+      "https://i.imgur.com/3YQZ8CU.png", // coração
+      "https://i.imgur.com/cIVuY2l.png", // Stitch
+      "https://i.imgur.com/5JfXkTw.png", // vinho
+      "https://i.imgur.com/GX0mVKy.png", // drink
+      "https://i.imgur.com/qg0YEXY.png", // cerveja
+      "https://i.imgur.com/kRe9Ygz.png", // whisky
+      "https://i.imgur.com/lOqMRrP.png"  // beijo
+    ];
+
     let rodadas = 0;
     let premios = [];
 
     function girarSlot() {
-      if (rodadas >= 5) {
-        document.getElementById("resultado").innerHTML = "🎉 Você já girou 5 vezes!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>');
+      if (rodadas >= 10) {
+        document.getElementById("resultado").innerHTML = "🎉 Você já girou 10 vezes!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>');
         return;
       }
 
@@ -74,23 +103,22 @@
       const s2 = simbolos[Math.floor(Math.random() * simbolos.length)];
       const s3 = simbolos[Math.floor(Math.random() * simbolos.length)];
 
-      document.getElementById("slot1").textContent = s1;
-      document.getElementById("slot2").textContent = s2;
-      document.getElementById("slot3").textContent = s3;
+      document.getElementById("slot1").innerHTML = `<img src="${s1}" alt="">`;
+      document.getElementById("slot2").innerHTML = `<img src="${s2}" alt="">`;
+      document.getElementById("slot3").innerHTML = `<img src="${s3}" alt="">`;
 
       rodadas++;
 
-      // Sorteio de prêmio (2 rodadas terão "prêmios")
-      if (rodadas === 2) {
+      if (rodadas === 3 || rodadas === 7) {
         premios.push("🍻 Um convite para sair e tomar um drink no barzinho comigo!");
       }
-      if (rodadas === 4) {
+      if (rodadas === 5 || rodadas === 9) {
         premios.push("🎬 Assistir ao novo filme do Stitch juntinhos!");
       }
 
-      if (rodadas === 5) {
+      if (rodadas === 10) {
         document.getElementById("resultado").innerHTML = "🎉 Fim do jogo!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>') +
-          "<br><br>💌 Que tal aceitar um desses convites e me dar a chance de te conhecer melhor?";
+          "<br><br>💌 Que tal viver uma dessas apostas comigo?";
       }
     }
   </script>
