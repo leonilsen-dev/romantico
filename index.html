@@ -2,105 +2,97 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz Charmoso 💖</title>
+  <title>Slot do Amor 💘</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: url('https://images.unsplash.com/photo-1606788075761-0f6c0769b6a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover;
-      padding: 20px;
-      color: #333;
+      background: linear-gradient(to bottom, #ffccd5, #fff0f5);
+      text-align: center;
+      padding: 40px;
     }
     h1 {
-      text-align: center;
-      color: #ffffff;
-      text-shadow: 1px 1px 3px #d63384;
+      color: #d63384;
     }
-    .quiz-box {
-      max-width: 700px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
+    #slot {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    .slot-item {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #d63384;
+      margin: 0 10px;
+      font-size: 50px;
+      line-height: 100px;
       border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
-    .pergunta {
-      margin-bottom: 25px;
-    }
-    label {
-      display: block;
-      margin: 5px 0;
+      background: white;
     }
     button {
+      padding: 10px 20px;
+      font-size: 18px;
       background: #d63384;
       color: white;
-      padding: 12px 24px;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
       cursor: pointer;
     }
     .resultado {
-      margin-top: 25px;
-      background: #ffe6f0;
-      padding: 20px;
-      border-radius: 10px;
-      display: none;
-      box-shadow: inset 0 0 10px #f0c0d0;
-      text-align: center;
-    }
-    .resultado img {
-      width: 120px;
-      margin-top: 15px;
+      margin-top: 30px;
+      font-size: 20px;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-  <h1>🍷 Quiz pra Gente se Conhecer Melhor 💕</h1>
-  <div class="quiz-box">
-    <form id="quizForm">
-      <!-- Perguntas 1 a 15 aqui (mantidas) -->
+  <h1>🎰 Slot do Amor Misterioso 💘</h1>
+  <p>Clique no botão abaixo para girar a roleta 5 vezes e descobrir o seu destino romântico!</p>
 
-      <button type="submit">Enviar 💌</button>
-    </form>
-
-    <div class="resultado" id="resultado">
-      <h3>Suas respostas:</h3>
-      <ul id="respostasList"></ul>
-      <p style="margin-top: 15px;">
-        😏 Agora que eu te conheço um pouco melhor...<br>
-        💡 Que tal transformar uma dessas ideias em um encontro real? 🍻✨<br>
-        Se você topa, a gente combina. Só dizer "sim" 💬
-      </p>
-      <img src="https://i.imgur.com/n9z3sLg.png" alt="Ursinho fofo">
-      <p style="margin-top: 10px; font-size: 18px;">
-        🐻 Eu pago a primeira rodada, topa sair pra beber comigo? 🍺💕
-      </p>
-    </div>
+  <div id="slot">
+    <div class="slot-item" id="slot1">❤️</div>
+    <div class="slot-item" id="slot2">🍷</div>
+    <div class="slot-item" id="slot3">💋</div>
   </div>
 
+  <button onclick="girarSlot()">Girar 🎲</button>
+
+  <div class="resultado" id="resultado"></div>
+
   <script>
-    const form = document.getElementById('quizForm');
-    const resultado = document.getElementById('resultado');
-    const respostasList = document.getElementById('respostasList');
+    const simbolos = ["💋", "🍷", "❤️", "🎬", "🍕", "🍻", "🌹"];
+    let rodadas = 0;
+    let premios = [];
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      respostasList.innerHTML = '';
-
-      for (let i = 1; i <= 15; i++) {
-        const resposta = form.querySelector(`input[name="p${i}"]:checked`);
-        if (resposta) {
-          const li = document.createElement('li');
-          li.textContent = `Pergunta ${i}: ${resposta.value}`;
-          respostasList.appendChild(li);
-        }
+    function girarSlot() {
+      if (rodadas >= 5) {
+        document.getElementById("resultado").innerHTML = "🎉 Você já girou 5 vezes!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>');
+        return;
       }
 
-      resultado.style.display = 'block';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    });
+      const s1 = simbolos[Math.floor(Math.random() * simbolos.length)];
+      const s2 = simbolos[Math.floor(Math.random() * simbolos.length)];
+      const s3 = simbolos[Math.floor(Math.random() * simbolos.length)];
+
+      document.getElementById("slot1").textContent = s1;
+      document.getElementById("slot2").textContent = s2;
+      document.getElementById("slot3").textContent = s3;
+
+      rodadas++;
+
+      // Sorteio de prêmio (2 rodadas terão "prêmios")
+      if (rodadas === 2) {
+        premios.push("🍻 Um convite para sair e tomar um drink no barzinho comigo!");
+      }
+      if (rodadas === 4) {
+        premios.push("🎬 Assistir ao novo filme do Stitch juntinhos!");
+      }
+
+      if (rodadas === 5) {
+        document.getElementById("resultado").innerHTML = "🎉 Fim do jogo!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>') +
+          "<br><br>💌 Que tal aceitar um desses convites e me dar a chance de te conhecer melhor?";
+      }
+    }
   </script>
 
 </body>
