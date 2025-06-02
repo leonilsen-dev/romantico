@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Slot do Amor Misterioso 💘</title>
+  <title>Tigrinho ❤️</title>
   <style>
     body {
       margin: 0;
@@ -13,8 +13,8 @@
       overflow-x: hidden;
       background-image: url('https://gmimages.cdnppb.net/cdn-cgi/image/f=auto,q=50/betfair-br/Z9ljbDiBA97Gil8L_DESIGNS-115857_Fortune_Tiger_logo.png?w=450&h=450');
       background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 400px;
+      background-position: center 350px;
+      background-size: 350px;
     }
     h1 {
       margin-top: 30px;
@@ -31,7 +31,7 @@
     #slot {
       display: flex;
       justify-content: center;
-      margin: 0 auto 40px auto;
+      margin: 200px auto 40px auto;
       max-width: 700px;
     }
     .slot-item {
@@ -87,12 +87,12 @@
 </head>
 <body>
 
-  <h1>🎰 Slot do Amor Misterioso 💘</h1>
-  <p>Clique no botão para girar a roleta 10 vezes e descobrir seus convites especiais!</p>
+  <h1>🎰 Tigrinho ❤️</h1>
+  <p>Clique no botão para girar a roleta e descobrir seus convites especiais!</p>
 
   <div id="slot">
-    <div class="slot-item" id="slot1"><img src="https://i.imgur.com/0zYTfbJ.png" alt=""></div>
-    <div class="slot-item" id="slot2"><img src="https://i.imgur.com/5JfXkTw.png" alt=""></div>
+    <div class="slot-item" id="slot1"><img src="https://img.freepik.com/vetores-gratis/coracao_78370-492.jpg" alt=""></div>
+    <div class="slot-item" id="slot2"><img src="https://img.freepik.com/vetores-premium/vale-beijo-vale-um-beijo-em-portugues-brasileiro-letras-de-mao-modernas-vetor_282901-137.jpg" alt=""></div>
     <div class="slot-item" id="slot3"><img src="https://images.seeklogo.com/logo-png/38/1/stitch-happy-logo-png_seeklogo-381509.png" alt=""></div>
   </div>
 
@@ -101,23 +101,24 @@
 
   <script>
     const simbolos = [
-      "https://img.freepik.com/vetores-gratis/coracao_78370-492.jpg?semt=ais_items_boosted&w=740",
+      "https://img.freepik.com/vetores-gratis/coracao_78370-492.jpg",
+      "https://img.freepik.com/vetores-premium/vale-beijo-vale-um-beijo-em-portugues-brasileiro-letras-de-mao-modernas-vetor_282901-137.jpg",
       "https://images.seeklogo.com/logo-png/38/1/stitch-happy-logo-png_seeklogo-381509.png",
       "https://png.pngtree.com/png-clipart/20240907/original/pngtree-crystal-glass-filled-with-red-wine-png-image_15958518.png",
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNkZJWn11ymIRUSuUkzecUVU-JIudYLzHQwHLjUS8N1-3bFsm2ljpKhZmppU0bvjhigKsgGM66-wni5EQLwlMIVyPc9R5uIaVRsWPGfdCHGpm_flsbUWCUl_JV8j-m4JEUZxFVFAQVIOXITFGtWcXLjqmgxB9uYbq0hz9g47ka1IavNLZTlebXmEH9Xts/s630/cop%C3%A3o%20png%20-%20cop%C3%A3o%20fundo%20transparente%20-%20copao%20png%20sem%20fundo%20-%20copao%20-%20copao%20png%20whisky%20-%20copao%20de%20whisky%20png%20-%20copao%20de%20whisky%20fundo%20transparente%20-%20cop%C3%A3o%20gelo%20de%20coco%20e%20whisky%20-%20cop%C3%A3o%202025%20%20%20(9).png",
-      "https://imagensempng.com.br/wp-content/uploads/2021/07/10-1.png",
-      "https://img.freepik.com/vetores-premium/vale-beijo-vale-um-beijo-em-portugues-brasileiro-letras-de-mao-modernas-vetor_282901-137.jpg"
+      "https://imagensempng.com.br/wp-content/uploads/2021/07/10-1.png"
     ];
 
-    let rodadas = 0;
-    let premios = [];
+    const premiosPorImagem = {
+      "https://img.freepik.com/vetores-premium/vale-beijo-vale-um-beijo-em-portugues-brasileiro-letras-de-mao-modernas-vetor_282901-137.jpg": "💋 Você ganhou um vale beijo!",
+      "https://images.seeklogo.com/logo-png/38/1/stitch-happy-logo-png_seeklogo-381509.png": "🎬 Vamos assistir o novo filme do Stitch juntinhos?",
+      "https://png.pngtree.com/png-clipart/20240907/original/pngtree-crystal-glass-filled-with-red-wine-png-image_15958518.png": "🍷 Uma noite especial tomando vinho comigo!",
+      "https://imagensempng.com.br/wp-content/uploads/2021/07/10-1.png": "🍻 Que tal um barzinho pra comemorar essa sorte?",
+      "https://img.freepik.com/vetores-gratis/coracao_78370-492.jpg": "❤️ Você conquistou meu coração!",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNkZJWn11ymIRUSuUkzecUVU-JIudYLzHQwHLjUS8N1-3bFsm2ljpKhZmppU0bvjhigKsgGM66-wni5EQLwlMIVyPc9R5uIaVRsWPGfdCHGpm_flsbUWCUl_JV8j-m4JEUZxFVFAQVIOXITFGtWcXLjqmgxB9uYbq0hz9g47ka1IavNLZTlebXmEH9Xts/s630/cop%C3%A3o%20png%20-%20cop%C3%A3o%20fundo%20transparente%20-%20copao%20png%20sem%20fundo%20-%20copao%20-%20copao%20png%20whisky%20-%20copao%20de%20whisky%20png%20-%20copao%20de%20whisky%20fundo%20transparente%20-%20cop%C3%A3o%20gelo%20de%20coco%20e%20whisky%20-%20cop%C3%A3o%202025%20%20%20(9).png": "🥃 Uma noite com copão de whisky e risadas garantidas!"
+    };
 
     function girarSlot() {
-      if (rodadas >= 10) {
-        document.getElementById("resultado").innerHTML = "🎉 Você já girou 10 vezes!<br><strong>Convites desbloqueados:</strong><br>" + premios.join('<br>') + "<br><br>💌 E aí, topa um desses rolês comigo?";
-        return;
-      }
-
       const s1 = simbolos[Math.floor(Math.random() * simbolos.length)];
       const s2 = simbolos[Math.floor(Math.random() * simbolos.length)];
       const s3 = simbolos[Math.floor(Math.random() * simbolos.length)];
@@ -126,17 +127,11 @@
       document.getElementById("slot2").innerHTML = `<img src="${s2}" alt="">`;
       document.getElementById("slot3").innerHTML = `<img src="${s3}" alt="">`;
 
-      rodadas++;
-
       if (s1 === s2 && s2 === s3) {
-        const sorteio = [
-          "💋 Você ganhou um vale beijo!",
-          "🍷 Uma noite especial tomando vinho comigo!",
-          "🎬 Vamos assistir o novo filme do Stitch juntinhos?",
-          "🍻 Que tal um barzinho pra comemorar essa sorte?"
-        ];
-        const premio = sorteio[Math.floor(Math.random() * sorteio.length)];
-        premios.push(premio);
+        const premio = premiosPorImagem[s1] || "💘 Você ganhou um encontro surpresa!";
+        document.getElementById("resultado").innerHTML = `🎉 <strong>Parabéns!</strong><br>${premio}<br><br>💌 E aí, topa um desses rolês comigo?`;
+      } else {
+        document.getElementById("resultado").innerHTML = "";
       }
     }
   </script>
