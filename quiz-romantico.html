@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Charmoso 💖</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: url('https://images.unsplash.com/photo-1606788075761-0f6c0769b6a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      text-shadow: 1px 1px 3px #d63384;
+    }
+    .quiz-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .pergunta {
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+    button {
+      background: #d63384;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .resultado {
+      margin-top: 25px;
+      background: #ffe6f0;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      box-shadow: inset 0 0 10px #f0c0d0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✨ Quiz Charmoso ✨</h1>
+  <div class="quiz-box">
+    <form id="quizForm">
+
+      <div class="pergunta">
+        <p>1️⃣ Qual dessas bebidas é a sua favorita?</p>
+        <label><input type="radio" name="p1" value="Café"> Café</label>
+        <label><input type="radio" name="p1" value="Vinho"> Vinho</label>
+        <label><input type="radio" name="p1" value="Refrigerante"> Refrigerante</label>
+        <label><input type="radio" name="p1" value="Suco"> Suco natural</label>
+      </div>
+
+      <div class="pergunta">
+        <p>2️⃣ Onde você mais gosta de estar?</p>
+        <label><input type="radio" name="p2" value="Em casa"> Em casa vendo série</label>
+        <label><input type="radio" name="p2" value="Com amigos"> Na rua com os amigos</label>
+        <label><input type="radio" name="p2" value="Natureza"> No parque ou natureza</label>
+        <label><input type="radio" name="p2" value="Cultura"> Rolê cultural</label>
+      </div>
+
+      <div class="pergunta">
+        <p>3️⃣ Qual seria um encontro ideal?</p>
+        <label><input type="radio" name="p3" value="Pizza e filme"> Pizza + filme</label>
+        <label><input type="radio" name="p3" value="Piquenique"> Piquenique ao ar livre</label>
+        <label><input type="radio" name="p3" value="Barzinho"> Barzinho com música</label>
+        <label><input type="radio" name="p3" value="Jantar chique"> Jantar reservado</label>
+      </div>
+
+      <div class="pergunta">
+        <p>4️⃣ Se pudesse viajar agora, escolheria:</p>
+        <label><input type="radio" name="p4" value="Praia"> Praia tropical</label>
+        <label><input type="radio" name="p4" value="Cidade histórica"> Cidade com história</label>
+        <label><input type="radio" name="p4" value="Interior"> Interior calmo</label>
+        <label><input type="radio" name="p4" value="Surpresa"> Lugar aleatório</label>
+      </div>
+
+      <div class="pergunta">
+        <p>5️⃣ Qual desses pets você mais gosta?</p>
+        <label><input type="radio" name="p5" value="Cachorro"> Cachorro</label>
+        <label><input type="radio" name="p5" value="Gato"> Gato</label>
+        <label><input type="radio" name="p5" value="Pássaros"> Pássaros</label>
+        <label><input type="radio" name="p5" value="Todos"> Todos!</label>
+      </div>
+
+      <div class="pergunta">
+        <p>6️⃣ Com que frequência você topa algo novo?</p>
+        <label><input type="radio" name="p6" value="Sempre"> Sempre!</label>
+        <label><input type="radio" name="p6" value="Boa companhia"> Se for com boa companhia</label>
+        <label><input type="radio" name="p6" value="Raramente"> Raramente</label>
+        <label><input type="radio" name="p6" value="Quando dá"> Quando sobra tempo</label>
+      </div>
+
+      <div class="pergunta">
+        <p>7️⃣ O que te conquista primeiro numa pessoa?</p>
+        <label><input type="radio" name="p7" value="Olhar"> Olhar</label>
+        <label><input type="radio" name="p7" value="Conversar"> Conversa</label>
+        <label><input type="radio" name="p7" value="Humor"> Senso de humor</label>
+        <label><input type="radio" name="p7" value="Gentileza"> Gentileza</label>
+      </div>
+
+      <div class="pergunta">
+        <p>8️⃣ Um sábado perfeito seria…</p>
+        <label><input type="radio" name="p8" value="Nada"> Fazendo nada</label>
+        <label><input type="radio" name="p8" value="Comida boa"> Comendo algo gostoso</label>
+        <label><input type="radio" name="p8" value="Explorar"> Conhecendo um lugar novo</label>
+        <label><input type="radio" name="p8" value="De boa"> De boa com alguém legal</label>
+      </div>
+
+      <div class="pergunta">
+        <p>9️⃣ O que você mais curte ouvir?</p>
+        <label><input type="radio" name="p9" value="Animada"> Música animada</label>
+        <label><input type="radio" name="p9" value="Calma"> Música calma</label>
+        <label><input type="radio" name="p9" value="Rock"> Rock/Indie</label>
+        <label><input type="radio" name="p9" value="Varia"> Depende do humor</label>
+      </div>
+
+      <div class="pergunta">
+        <p>🔟 Se a gente saísse, o que mais combina com você?</p>
+        <label><input type
